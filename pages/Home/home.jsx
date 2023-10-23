@@ -1,5 +1,6 @@
 import {s} from "./home.style";
+import { Text } from "react-native";
 
 export function Home(){
-    return <></>;
+    return <Text>Lamine King</Text>;
 }

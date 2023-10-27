@@ -7,7 +7,11 @@ import backgroundImg from "./assets/backgroundIMG.png";
 
 export default function App() {
   return (
-    <ImageBackground source={backgroundImg} style={s.Img_background}>
+    <ImageBackground
+      source={backgroundImg}
+      style={s.Img_background}
+      imageStyle={s.img}
+    >
       <SafeAreaProvider>
         <SafeAreaView style={s.container}>
           <Home />

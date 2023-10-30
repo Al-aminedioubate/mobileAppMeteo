@@ -9,3 +9,10 @@ const s = StyleSheet.create({
 });
 
 export { s };
+
+/*
+https://api.open-meteo.com/v1/forecast?
+latitude=52.52&longitude=13.41
+&daily=weathercode,temperature_2m_max,sunrise,sunset,windspeed_10m_max
+&timezone=auto
+&current_weather=true*/

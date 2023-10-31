@@ -2,16 +2,29 @@ import { s } from "./home.style";
 import { Text, View } from "react-native";
 import {requestForegroundPermissionsAsync, getCurrentPositionAsync} from "expo-location";
 import { useEffect, useState } from "react";
+import { MeteoAPI } from "../../api/meteo";
 
 export function Home(){
 
-    //Lancement de app et pour recuperer les coordonnees de user.
+    //Lancement de app et pour recuperer les coordonnees de user
     useEffect(() =>{
         getUserCoords();
     }, []);
 
+   
+    //a chaque fois que les coordonnees changes il aura les valeurs(ces valeurs seront recuperer apres le 1er render).
+    //Dans ce cas des que les coords changes dans l'app on relance fetch weather.
+    useEffect(() =>{
+        if(coords){
+            fetchWeather(coords);
+        }
+    }, [coords]);
+
     //Recuperation de la position de l'utilisateur.
     const [coords, setCoords]= useState();
+
+    //sauvegarde des nouveaux coordonnees pour qu'il puisse etre afficher
+    const [weather, setWeather]= useState();
 
     async function getUserCoords(){
         let {status} = await requestForegroundPermissionsAsync();
@@ -27,11 +40,18 @@ export function Home(){
         }
     }
 
-    console.log(coords);
+    //la fonction fecher permettant de recuperer la temperature.
+    async function fetchWeather(coordinates){
+        const weatherResponse = await MeteoAPI.fetchWeatherFromCoords(coordinates);
+        setWeather(weatherResponse);
+    }
+
+    //console.log(coords);
+    console.log(weather);
+
     return (
         <>
-            <View style={s.meteo_basic}>
-            </View>
+            <View style={s.meteo_basic}></View>
             <View style={s.searchbar}></View>
             <View style={s.meteo_advanced}></View>
         </>

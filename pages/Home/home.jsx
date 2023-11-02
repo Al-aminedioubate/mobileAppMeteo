@@ -47,14 +47,13 @@ export function Home(){
     }
 
     //console.log(coords);
-    console.log(weather);
+    //console.log(weather);
 
     return (
         <>
-            <View style={s.meteo_basic}></View>
+            <View style={s.meteo_basic}><Text style={{fontSize: 60, fontFamily: 'Alata-Regular', color: 'white'}}>Hello</Text></View>
             <View style={s.searchbar}></View>
             <View style={s.meteo_advanced}></View>
         </>
     );
-   
 }

@@ -15,6 +15,7 @@ export default function App() {
   });
 
   console.log(isFondLoaded);
+
   return (
     <ImageBackground
       source={backgroundImg}

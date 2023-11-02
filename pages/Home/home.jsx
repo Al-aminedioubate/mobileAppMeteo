@@ -7,13 +7,11 @@ import { MeteoAPI } from "../../api/meteo";
 import { Txt } from "../../components/Txt/Txt";
 
 export function Home(){
-
     //Lancement de app et pour recuperer les coordonnees de user
     useEffect(() =>{
         getUserCoords();
     }, []);
 
-   
     //a chaque fois que les coordonnees changes il aura les valeurs(ces valeurs seront recuperer apres le 1er render).
     //Dans ce cas des que les coords changes dans l'app on relance fetch weather.
     useEffect(() =>{
@@ -42,14 +40,11 @@ export function Home(){
         }
     }
 
-    //la fonction fecher permettant de recuperer la temperature.
+    //la fonction fecher permettant de recuperer la temperature a partir de L'API.
     async function fetchWeather(coordinates){
         const weatherResponse = await MeteoAPI.fetchWeatherFromCoords(coordinates);
         setWeather(weatherResponse);
     }
-
-    //console.log(coords);
-    //console.log(weather);
 
     return (
         <>

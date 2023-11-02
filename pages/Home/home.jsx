@@ -4,6 +4,8 @@ import {requestForegroundPermissionsAsync, getCurrentPositionAsync} from "expo-l
 import { useEffect, useState } from "react";
 import { MeteoAPI } from "../../api/meteo";
 
+import { Txt } from "../../components/Txt/Txt";
+
 export function Home(){
 
     //Lancement de app et pour recuperer les coordonnees de user
@@ -51,7 +53,7 @@ export function Home(){
 
     return (
         <>
-            <View style={s.meteo_basic}><Text style={{fontSize: 60, fontFamily: 'Alata-Regular', color: 'white'}}>Hello</Text></View>
+            <View style={s.meteo_basic}><Txt style={{fontSize: 60}}>Hello</Txt></View>
             <View style={s.searchbar}></View>
             <View style={s.meteo_advanced}></View>
         </>

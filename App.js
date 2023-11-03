@@ -10,11 +10,12 @@ import { useFonts } from "expo-font";
 export default function App() {
   //par contre si on utilise notre fonts avant que sa ne charge l'application va crasser dont on va conditionner notre rendering.
   //pour qu'il l'affiche seulement quand le font est chargé
-  const [isFondLoaded] = useFonts({
+
+  const [isFontLoaded] = useFonts({
     "Alata-Regular": AlataRegular,
   });
 
-  console.log(isFondLoaded);
+  console.log(isFontLoaded);
 
   return (
     <ImageBackground
@@ -24,7 +25,7 @@ export default function App() {
     >
       <SafeAreaProvider>
         <SafeAreaView style={s.container}>
-          {isFondLoaded ? <Home /> : null}
+          {isFontLoaded ? <Home /> : null}
         </SafeAreaView>
       </SafeAreaProvider>
     </ImageBackground>

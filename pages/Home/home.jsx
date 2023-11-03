@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { MeteoAPI } from "../../api/meteo";
 
 import { Txt } from "../../components/Txt/Txt";
+import { MeteoBasic } from "../../components/MeteoBasic/MeteoBasic";
 
 export function Home(){
     //Lancement de app et pour recuperer les coordonnees de user
@@ -48,7 +49,9 @@ export function Home(){
 
     return (
         <>
-            <View style={s.meteo_basic}><Txt style={{fontSize: 60}}>Hello</Txt></View>
+            <View style={s.meteo_basic}>
+                <MeteoBasic/>
+            </View>
             <View style={s.searchbar}></View>
             <View style={s.meteo_advanced}></View>
         </>

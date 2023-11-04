@@ -26,6 +26,8 @@ export function Home(){
 
     //sauvegarde des nouveaux coordonnees pour qu'il puisse etre afficher
     const [weather, setWeather]= useState();
+    
+    const currentWeather = weather?.current_weather;
 
     async function getUserCoords(){
         let {status} = await requestForegroundPermissionsAsync();
@@ -37,7 +39,7 @@ export function Home(){
             });
 
         }else{
-            setCoords({lat: "52.52", lng: "13.41"});
+            setCoords({lat: "45.5662", lng: "-73.7158"});
         }
     }
 
@@ -47,13 +49,16 @@ export function Home(){
         setWeather(weatherResponse);
     }
 
-    return (
+    console.log(weather);
+    
+    return currentWeather? (
         <>
             <View style={s.meteo_basic}>
-                <MeteoBasic/>
+                <MeteoBasic temperature={Math.round(currentWeather?.temperature)}
+                city="Todo"/>
             </View>
             <View style={s.searchbar}></View>
             <View style={s.meteo_advanced}></View>
         </>
-    );
+    ): null;
 }

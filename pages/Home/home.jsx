@@ -6,6 +6,7 @@ import { MeteoAPI } from "../../api/meteo";
 
 import { Txt } from "../../components/Txt/Txt";
 import { MeteoBasic } from "../../components/MeteoBasic/MeteoBasic";
+import { getWeatherInterpretation } from "../../services/meteo-services";
 
 export function Home(){
     //Lancement de app et pour recuperer les coordonnees de user
@@ -27,7 +28,7 @@ export function Home(){
     //sauvegarde des nouveaux coordonnees pour qu'il puisse etre afficher
     const [weather, setWeather]= useState();
     
-    const currentWeather = weather?.current_weather;
+    const currentWeather = weather?.current_weather;    //temperature recuperer a partir de l'API.
 
     async function getUserCoords(){
         let {status} = await requestForegroundPermissionsAsync();
@@ -49,16 +50,18 @@ export function Home(){
         setWeather(weatherResponse);
     }
 
-    console.log(weather);
-    
-    return currentWeather? (
+    return  currentWeather? (
         <>
             <View style={s.meteo_basic}>
                 <MeteoBasic temperature={Math.round(currentWeather?.temperature)}
-                city="Todo"/>
+                city="Todo"
+                interpretation={getWeatherInterpretation(currentWeather.weathercode)}
+                />
             </View>
             <View style={s.searchbar}></View>
             <View style={s.meteo_advanced}></View>
         </>
     ): null;
+
+    
 }

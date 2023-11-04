@@ -7,8 +7,9 @@ const s = StyleSheet.create({
   weatherLabel: {
     alignSelf: "flex-end",
     transform: [{ rotate: "-90deg" }],
+    fontSize: 20,
   },
-  img: { height: 90, width: 90, backgroundColor: "white" },
+  img: { height: 90, width: 90 },
   temperatureBox: {
     alignItems: "baseline",
     flexDirection: "row",

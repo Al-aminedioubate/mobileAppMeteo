@@ -10,7 +10,6 @@ import { useFonts } from "expo-font";
 export default function App() {
   //par contre si on utilise notre fonts avant que sa ne charge l'application va crasser dont on va conditionner notre rendering.
   //pour qu'il l'affiche seulement quand le font est chargé
-
   const [isFontLoaded] = useFonts({
     "Alata-Regular": AlataRegular,
   });

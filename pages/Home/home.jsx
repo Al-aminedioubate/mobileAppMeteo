@@ -12,7 +12,7 @@ export function Home(){
     //Lancement de app et pour recuperer les coordonnees de user
     useEffect(() =>{
         getUserCoords();
-    }, []);
+    },[]);
 
     //a chaque fois que les coordonnees changes il aura les valeurs(ces valeurs seront recuperer apres le 1er render).
     //Dans ce cas des que les coords changes dans l'app on relance fetch weather.
@@ -20,7 +20,7 @@ export function Home(){
         if(coords){
             fetchWeather(coords);
         }
-    }, [coords]);
+    },[coords]);
 
     //Recuperation de la position de l'utilisateur.
     const [coords, setCoords]= useState();
@@ -50,7 +50,7 @@ export function Home(){
         setWeather(weatherResponse);
     }
 
-    return  currentWeather? (
+    return currentWeather? (
         <>
             <View style={s.meteo_basic}>
                 <MeteoBasic temperature={Math.round(currentWeather?.temperature)}

@@ -1,22 +1,21 @@
 import { View} from "react-native";
-import {s} from "./meteoAdvanced.style";
-import { Txt } from "../Txt/Txt";
+import {s, StyledLabel, StyledValue, StyledContainer} from "./meteoAdvanced.style";
 
 export function MeteoAdvanced({}){
     return (
         <View style={s.container}>
-            <View>
-                <Txt>Todo</Txt>
-                <Txt>Aube</Txt>
-            </View>
-            <View>
-                <Txt>Todo</Txt>
-                <Txt>Crepuscule</Txt>
-            </View>
-            <View>
-                <Txt>Todo</Txt>
-                <Txt>Vent</Txt>
-            </View>
+            <StyledContainer>
+                <StyledValue>Todo</StyledValue>
+                <StyledLabel>Aube</StyledLabel>
+            </StyledContainer>
+            <StyledContainer>
+                <StyledValue>Todo</StyledValue>
+                <StyledLabel>Crépuscule</StyledLabel>
+            </StyledContainer>
+            <StyledContainer>
+                <StyledValue>Todo</StyledValue>
+                <StyledLabel>Vent</StyledLabel>
+            </StyledContainer>
         </View>
     );
 }

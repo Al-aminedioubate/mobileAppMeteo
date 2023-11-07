@@ -4,7 +4,6 @@ import {requestForegroundPermissionsAsync, getCurrentPositionAsync} from "expo-l
 import { useEffect, useState } from "react";
 import { MeteoAPI } from "../../api/meteo";
 
-import { Txt } from "../../components/Txt/Txt";
 import { MeteoBasic } from "../../components/MeteoBasic/MeteoBasic";
 import { getWeatherInterpretation } from "../../services/meteo-services";
 import { MeteoAdvanced } from "../../components/meteoAdvanced/meteoAdvanced";
@@ -47,7 +46,7 @@ export function Home(){
             setCoords({lat: "45.5662", lng: "-73.7158"});
         }
     }
-
+    
     //la fonction fecher permettant de recuperer la temperature a partir de L'API.
     async function fetchWeather(coordinates){
         const weatherResponse = await MeteoAPI.fetchWeatherFromCoords(coordinates);
@@ -58,7 +57,7 @@ export function Home(){
         const cityResponse = await MeteoAPI.fetchCityFromCoords(coordinates);
         setCity(cityResponse);
     }
-    
+
     return currentWeather? (
         <>
             <View style={s.meteo_basic}>
@@ -73,5 +72,4 @@ export function Home(){
             </View>
         </>
     ): null;
-
 }

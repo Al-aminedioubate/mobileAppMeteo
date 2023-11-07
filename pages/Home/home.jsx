@@ -58,9 +58,6 @@ export function Home(){
         setCity(cityResponse);
     }
 
-    console.log(weather);
-    console.log(city);
-
     return currentWeather? (
         <>
             <View style={s.meteo_basic}>

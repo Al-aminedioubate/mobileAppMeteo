@@ -4,7 +4,6 @@ import { Txt } from "../Txt/Txt";
 import {s} from "./Clock.style";
 
 export function Clock(){
-    
     const [time, setTime] = useState(nowToHHMM());      
     
     useEffect(()=>{                         //cette function va permettre a notre time de se rafrechir a chaque seconde avec l'aide de notre State..

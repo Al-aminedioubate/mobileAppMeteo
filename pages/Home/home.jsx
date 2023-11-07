@@ -57,7 +57,6 @@ export function Home(){
         const cityResponse = await MeteoAPI.fetchCityFromCoords(coordinates);
         setCity(cityResponse);
     }
-
     return currentWeather? (
         <>
             <View style={s.meteo_basic}>

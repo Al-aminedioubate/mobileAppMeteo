@@ -46,7 +46,7 @@ export function Home(){
             setCoords({lat: "45.5662", lng: "-73.7158"});
         }
     }
-    
+
     //la fonction fecher permettant de recuperer la temperature a partir de L'API.
     async function fetchWeather(coordinates){
         const weatherResponse = await MeteoAPI.fetchWeatherFromCoords(coordinates);
@@ -68,7 +68,10 @@ export function Home(){
             </View>
             <View style={s.searchbar}></View>
             <View style={s.meteo_advanced}>
-                <MeteoAdvanced />
+                <MeteoAdvanced wind={currentWeather.windspeed}
+                dusk={weather.daily.sunrise[0].split("T")[1]}
+                dawn={weather.daily.sunset[0].split("T")[1]}
+                />
             </View>
         </>
     ): null;

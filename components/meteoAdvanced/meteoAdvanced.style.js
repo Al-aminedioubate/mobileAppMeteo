@@ -10,6 +10,7 @@ const s = StyleSheet.create({
     borderColor: "white", //pourqu'il soit visible il faut mettre un border width.
     borderWidth: 2,
     backgroundColor: "#00000044",
+    alignItems: "center",
   },
 });
 

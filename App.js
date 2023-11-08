@@ -9,8 +9,15 @@ import { useFonts } from "expo-font";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Forecast } from "./components/Pages/Forecast/Forecast";
 
 const Stack = createNativeStackNavigator();
+
+const navTheme = {
+  colors: {
+    background: "transparent",
+  },
+};
 
 export default function App() {
   //par contre si on utilise notre fonts avant que sa ne charge l'application va crasser dont on va conditionner notre rendering.
@@ -22,7 +29,7 @@ export default function App() {
   console.log(isFontLoaded);
 
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={navTheme}>
       <ImageBackground
         source={backgroundImg}
         style={s.Img_background}
@@ -36,6 +43,7 @@ export default function App() {
                 initialRouteName="Home"
               >
                 <Stack.Screen name="Home" component={Home} />
+                <Stack.Screen name="Forecast" component={Forecast} />
               </Stack.Navigator>
             ) : null}
           </SafeAreaView>

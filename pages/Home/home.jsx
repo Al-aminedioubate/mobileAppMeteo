@@ -29,7 +29,6 @@ export function Home(){
 
     //sauvegarde des nouveaux coordonnees pour qu'il puisse etre afficher
     const [weather, setWeather]= useState();
-
     const [city, setCity] = useState();
     
     const currentWeather = weather?.current_weather;    //temperature recuperer a partir de l'API.

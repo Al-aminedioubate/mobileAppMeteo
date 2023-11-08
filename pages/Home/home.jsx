@@ -13,7 +13,7 @@ export function Home(){
     useEffect(() =>{
         getUserCoords();
     },[]);
-
+    
     //a chaque fois que les coordonnees changes il aura les valeurs(ces valeurs seront recuperer apres le 1er render).
     //Dans ce cas des que les coords changes dans l'app on relance fetch weather.
     useEffect(() =>{

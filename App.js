@@ -7,6 +7,11 @@ import backgroundImg from "./assets/backgroundIMG.png";
 import AlataRegular from "./assets/fonts/Alata-Regular.ttf";
 import { useFonts } from "expo-font";
 
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+const Stack = createNativeStackNavigator();
+
 export default function App() {
   //par contre si on utilise notre fonts avant que sa ne charge l'application va crasser dont on va conditionner notre rendering.
   //pour qu'il l'affiche seulement quand le font est chargé
@@ -17,16 +22,25 @@ export default function App() {
   console.log(isFontLoaded);
 
   return (
-    <ImageBackground
-      source={backgroundImg}
-      style={s.Img_background}
-      imageStyle={s.img}
-    >
-      <SafeAreaProvider>
-        <SafeAreaView style={s.container}>
-          {isFontLoaded ? <Home /> : null}
-        </SafeAreaView>
-      </SafeAreaProvider>
-    </ImageBackground>
+    <NavigationContainer>
+      <ImageBackground
+        source={backgroundImg}
+        style={s.Img_background}
+        imageStyle={s.img}
+      >
+        <SafeAreaProvider>
+          <SafeAreaView style={s.container}>
+            {isFontLoaded ? (
+              <Stack.Navigator
+                screenOptions={{ headerShown: false }}
+                initialRouteName="Home"
+              >
+                <Stack.Screen name="Home" component={Home} />
+              </Stack.Navigator>
+            ) : null}
+          </SafeAreaView>
+        </SafeAreaProvider>
+      </ImageBackground>
+    </NavigationContainer>
   );
 }

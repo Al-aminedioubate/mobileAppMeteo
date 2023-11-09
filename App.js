@@ -30,25 +30,15 @@ export default function App() {
 
   return (
     <NavigationContainer theme={navTheme}>
-      <ImageBackground
-        source={backgroundImg}
-        style={s.Img_background}
-        imageStyle={s.img}
-      >
-        <SafeAreaProvider>
-          <SafeAreaView style={s.container}>
-            {isFontLoaded ? (
-              <Stack.Navigator
-                screenOptions={{ headerShown: false }}
-                initialRouteName="Home"
-              >
-                <Stack.Screen name="Home" component={Home} />
-                <Stack.Screen name="Forecast" component={Forecast} />
-              </Stack.Navigator>
-            ) : null}
-          </SafeAreaView>
-        </SafeAreaProvider>
-      </ImageBackground>
+      {isFontLoaded ? (
+        <Stack.Navigator
+          screenOptions={{ headerShown: false }}
+          initialRouteName="Home"
+        >
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Forecast" component={Forecast} />
+        </Stack.Navigator>
+      ) : null}
     </NavigationContainer>
   );
 }

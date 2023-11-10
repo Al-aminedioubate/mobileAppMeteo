@@ -33,7 +33,7 @@ export function Home(){
     const [city, setCity] = useState();
     
     const currentWeather = weather?.current_weather;    //temperature recuperer a partir de l'API.
-    
+
     async function getUserCoords(){
         let {status} = await requestForegroundPermissionsAsync();
         if(status === "granted"){
@@ -60,7 +60,6 @@ export function Home(){
     }
 
     const nav = useNavigation();
-
     function goToForecastPage(){
         nav.navigate("Forecast",{city, ...weather.daily});
     }

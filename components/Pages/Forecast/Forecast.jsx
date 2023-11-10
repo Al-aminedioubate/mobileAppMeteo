@@ -1,4 +1,4 @@
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 import { Container } from "../../Container/container";
 import { Txt } from "../../Txt/Txt";
 import { s } from "./forecast.style";
@@ -11,14 +11,24 @@ export function Forecast({}){
 
     //On va utiliser le spliting pour rendre le code plus lisible
     const backButton = (
-        <TouchableOpacity onPress={()=> nav.goBack()}>
-            <Txt>{"< Back"}</Txt>
+        <TouchableOpacity style={s.backBtn} onPress={()=> nav.goBack()}>
+            <Txt>{"<"}</Txt>
         </TouchableOpacity>
+    )
+
+    const header = (
+        <View style={s.headr}>
+            {backButton}
+            <View style={s.header_text}>
+                <Txt>{params.city}</Txt>
+                <Txt style={s.subtitle}>Prévision sur 7 jours</Txt>
+            </View>
+        </View>
     )
 
     return (
         <Container>
-            {backButton}
+            {header}
         </Container>
     );
    

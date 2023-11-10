@@ -8,6 +8,7 @@ import { MeteoBasic } from "../../components/MeteoBasic/MeteoBasic";
 import { getWeatherInterpretation } from "../../services/meteo-services";
 import { MeteoAdvanced } from "../../components/meteoAdvanced/meteoAdvanced";
 import { useNavigation } from "@react-navigation/native";
+import { Container } from "../../components/Container/container";
 
 export function Home(){
     //Lancement de app et pour recuperer les coordonnees de user
@@ -59,13 +60,12 @@ export function Home(){
     }
 
     const nav = useNavigation();
-
     function goToForecastPage(){
         nav.navigate("Forecast");
     }
 
     return currentWeather? (
-        <>
+        <Container>
             <View style={s.meteo_basic}>
                 <MeteoBasic temperature={Math.round(currentWeather?.temperature)}
                 city={city}
@@ -80,6 +80,6 @@ export function Home(){
                 dawn={weather.daily.sunset[0].split("T")[1]}
                 />
             </View>
-        </>
+        </Container>
     ): null;
 }

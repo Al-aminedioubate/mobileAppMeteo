@@ -22,17 +22,15 @@ export default function App() {
 
   console.log(isFontLoaded);
 
-  return (
+  return isFontLoaded ? (
     <NavigationContainer theme={navTheme}>
-      {isFontLoaded ? (
-        <Stack.Navigator
-          screenOptions={{ headerShown: false }}
-          initialRouteName="Home"
-        >
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="Forecast" component={Forecast} />
-        </Stack.Navigator>
-      ) : null}
+      <Stack.Navigator
+        screenOptions={{ headerShown: false }}
+        initialRouteName="Home"
+      >
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Forecast" component={Forecast} />
+      </Stack.Navigator>
     </NavigationContainer>
-  );
+  ) : null;
 }

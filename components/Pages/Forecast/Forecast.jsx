@@ -3,7 +3,7 @@ import { Container } from "../../Container/container";
 import { Txt } from "../../Txt/Txt";
 import { s } from "./forecast.style";
 import {useNavigation, useRoute} from "@react-navigation/native";
-
+import { ForecastListItems } from "../../ForecastListItems/forecastListItems";
 
 export function Forecast({}){
     const {params} = useRoute();
@@ -29,6 +29,15 @@ export function Forecast({}){
     return (
         <Container>
             {header}
+            <View style={{marginTop: 50,}}>
+                <ForecastListItems image={require("../../../assets/clouds.png")} day= "LUN" date="03/11/2023" temperature={14} />
+                <ForecastListItems image={require("../../../assets/clouds.png")} day= "LUN" date="03/11/2023" temperature={14} />
+                <ForecastListItems image={require("../../../assets/clouds.png")} day= "LUN" date="03/11/2023" temperature={14} />
+                <ForecastListItems image={require("../../../assets/clouds.png")} day= "LUN" date="03/11/2023" temperature={14} />
+                <ForecastListItems image={require("../../../assets/clouds.png")} day= "LUN" date="03/11/2023" temperature={14} />
+                <ForecastListItems image={require("../../../assets/clouds.png")} day= "LUN" date="03/11/2023" temperature={14} />
+                <ForecastListItems image={require("../../../assets/clouds.png")} day= "LUN" date="03/11/2023" temperature={14} />
+            </View>
         </Container>
     );
    

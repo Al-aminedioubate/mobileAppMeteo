@@ -60,26 +60,31 @@ export function Home(){
     }
 
     const nav = useNavigation();
+    
     function goToForecastPage(){
-        nav.navigate("Forecast");
+        nav.navigate("Forecast",{city, ...weather.daily});
     }
 
-    return currentWeather? (
+    return  (
         <Container>
-            <View style={s.meteo_basic}>
-                <MeteoBasic temperature={Math.round(currentWeather?.temperature)}
-                city={city}
-                interpretation={getWeatherInterpretation(currentWeather.weathercode)}
-                onPress={goToForecastPage}
-                />
-            </View>
-            <View style={s.searchbar}></View>
-            <View style={s.meteo_advanced}>
-                <MeteoAdvanced wind={currentWeather.windspeed}
-                dusk={weather.daily.sunrise[0].split("T")[1]}
-                dawn={weather.daily.sunset[0].split("T")[1]}
-                />
-            </View>
+            {currentWeather ? (
+                <>
+                    <View style={s.meteo_basic}>
+                        <MeteoBasic temperature={Math.round(currentWeather?.temperature)}
+                        city={city}
+                        interpretation={getWeatherInterpretation(currentWeather.weathercode)}
+                        onPress={goToForecastPage}
+                        />
+                    </View>
+                    <View style={s.searchbar}></View>
+                    <View style={s.meteo_advanced}>
+                        <MeteoAdvanced wind={currentWeather.windspeed}
+                        dusk={weather.daily.sunrise[0].split("T")[1]}
+                        dawn={weather.daily.sunset[0].split("T")[1]}
+                        />
+                    </View>
+                </>
+            ): null}
         </Container>
-    ): null;
+    );
 }

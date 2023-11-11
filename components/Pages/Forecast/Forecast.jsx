@@ -4,6 +4,7 @@ import { Txt } from "../../Txt/Txt";
 import { s } from "./forecast.style";
 import {useNavigation, useRoute} from "@react-navigation/native";
 import { ForecastListItems } from "../../ForecastListItems/forecastListItems";
+import { getWeatherInterpretation } from "../../../services/meteo-services";
 
 export function Forecast({}){
     const {params} = useRoute();
@@ -26,18 +27,20 @@ export function Forecast({}){
         </View>
     )
 
+    const forecasList = (
+        <View style={s.forecasList}>
+            {params.time.map((time, index) =>{
+                const code = params.weathercode[index];
+                const image = getWeatherInterpretation(code).image;
+                return <ForecastListItems image={image} key={time}/>;
+            })}
+        </View>
+    );
+
     return (
         <Container>
             {header}
-            <View style={{marginTop: 50,}}>
-                <ForecastListItems image={require("../../../assets/clouds.png")} day= "LUN" date="03/11/2023" temperature={14} />
-                <ForecastListItems image={require("../../../assets/clouds.png")} day= "LUN" date="03/11/2023" temperature={14} />
-                <ForecastListItems image={require("../../../assets/clouds.png")} day= "LUN" date="03/11/2023" temperature={14} />
-                <ForecastListItems image={require("../../../assets/clouds.png")} day= "LUN" date="03/11/2023" temperature={14} />
-                <ForecastListItems image={require("../../../assets/clouds.png")} day= "LUN" date="03/11/2023" temperature={14} />
-                <ForecastListItems image={require("../../../assets/clouds.png")} day= "LUN" date="03/11/2023" temperature={14} />
-                <ForecastListItems image={require("../../../assets/clouds.png")} day= "LUN" date="03/11/2023" temperature={14} />
-            </View>
+            {forecasList}
         </Container>
     );
    

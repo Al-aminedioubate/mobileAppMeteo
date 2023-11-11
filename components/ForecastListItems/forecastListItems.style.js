@@ -10,6 +10,7 @@ const s = StyleSheet.create({
   img: { height: 50, width: 50 },
   day: { fontSize: 20 },
   date: { fontSize: 20 },
+  forecastList: { marginTop: 50 },
 });
 
 export { s };

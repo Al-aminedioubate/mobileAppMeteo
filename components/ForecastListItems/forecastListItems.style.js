@@ -11,6 +11,7 @@ const s = StyleSheet.create({
   day: { fontSize: 20 },
   date: { fontSize: 20 },
   forecastList: { marginTop: 50 },
+  temperature: { width: 60, textAlign: "center" },
 });
 
 export { s };

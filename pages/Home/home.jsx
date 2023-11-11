@@ -57,12 +57,12 @@ export function Home(){
         const cityResponse = await MeteoAPI.fetchCityFromCoords(coordinates);
         setCity(cityResponse);
     }
-    
+
     const nav = useNavigation();
     function goToForecastPage(){
         nav.navigate("Forecast",{city, ...weather.daily});
     }
-
+    
     return  (
         <Container>
             {currentWeather ? (

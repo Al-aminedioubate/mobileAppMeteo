@@ -40,7 +40,9 @@ export function Forecast({}){
 
                 const d = `${date.getUTCDate().toString().padStart(2, "0")}/${date.getMonth() + 1}`;
 
-                return (<ForecastListItems image={image} day={day} key={time} date={d}/>);
+                const temperature = params.temperature_2m_max[index];
+
+                return (<ForecastListItems image={image} day={day} key={time} date={d} temperature={temperature.toFixed(0)}/>);
             })}
         </View>
     );

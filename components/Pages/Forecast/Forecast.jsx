@@ -5,6 +5,7 @@ import { s } from "./forecast.style";
 import {useNavigation, useRoute} from "@react-navigation/native";
 import { ForecastListItems } from "../../ForecastListItems/forecastListItems";
 import { getWeatherInterpretation } from "../../../services/meteo-services";
+import { DAYS } from "../../../services/Date-service";
 
 export function Forecast({}){
     const {params} = useRoute();
@@ -32,7 +33,10 @@ export function Forecast({}){
             {params.time.map((time, index) =>{
                 const code = params.weathercode[index];
                 const image = getWeatherInterpretation(code).image;
-                return <ForecastListItems image={image} key={time}/>;
+                const date = new Date(time);
+                const day = DAYS[date.getDay()];
+
+                return <ForecastListItems image={image} day={day} key={time}/>;
             })}
         </View>
     );

@@ -59,6 +59,7 @@ export function Home(){
     }
 
     const nav = useNavigation();
+    
     function goToForecastPage(){
         nav.navigate("Forecast",{city, ...weather.daily});
     }

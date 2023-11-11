@@ -6,6 +6,8 @@ import {useNavigation, useRoute} from "@react-navigation/native";
 import { ForecastListItems } from "../../ForecastListItems/forecastListItems";
 import { getWeatherInterpretation } from "../../../services/meteo-services";
 import { DAYS } from "../../../services/Date-service";
+import {dateToDDMM} from "../../../services/Date-service";
+
 
 export function Forecast({}){
     const {params} = useRoute();
@@ -36,7 +38,9 @@ export function Forecast({}){
                 const date = new Date(time);
                 const day = DAYS[date.getDay()];
 
-                return <ForecastListItems image={image} day={day} key={time}/>;
+                const d = `${date.getUTCDate().toString().padStart(2, "0")}/${date.getMonth() + 1}`;
+
+                return (<ForecastListItems image={image} day={day} key={time} date={d}/>);
             })}
         </View>
     );

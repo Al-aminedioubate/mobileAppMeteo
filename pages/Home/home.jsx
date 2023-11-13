@@ -9,6 +9,7 @@ import { getWeatherInterpretation } from "../../services/meteo-services";
 import { MeteoAdvanced } from "../../components/meteoAdvanced/meteoAdvanced";
 import { useNavigation } from "@react-navigation/native";
 import { Container } from "../../components/Container/container";
+import { SearchBar } from "../../components/SearchBar/searchBar";
 
 export function Home(){
     //Lancement de app et pour recuperer les coordonnees de user
@@ -62,7 +63,7 @@ export function Home(){
     function goToForecastPage(){
         nav.navigate("Forecast",{city, ...weather.daily});
     }
-    
+
     return  (
         <Container>
             {currentWeather ? (
@@ -74,7 +75,9 @@ export function Home(){
                         onPress={goToForecastPage}
                         />
                     </View>
-                    <View style={s.searchbar}></View>
+                    <View style={s.searchbar}>
+                        <SearchBar />
+                    </View>
                     <View style={s.meteo_advanced}>
                         <MeteoAdvanced wind={currentWeather.windspeed}
                         dusk={weather.daily.sunrise[0].split("T")[1]}

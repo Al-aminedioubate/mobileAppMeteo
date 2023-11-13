@@ -20,8 +20,6 @@ export default function App() {
     "Alata-Regular": AlataRegular,
   });
 
-  console.log(isFontLoaded);
-
   return isFontLoaded ? (
     <NavigationContainer theme={navTheme}>
       <Stack.Navigator

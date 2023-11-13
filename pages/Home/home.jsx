@@ -75,7 +75,6 @@ export function Home(){
                         onPress={goToForecastPage}
                         />
                     </View>
-                    
                     <View style={s.searchbar}>
                         <SearchBar />
                     </View>

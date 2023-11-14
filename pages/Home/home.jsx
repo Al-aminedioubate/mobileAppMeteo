@@ -64,6 +64,12 @@ export function Home(){
         nav.navigate("Forecast",{city, ...weather.daily});
     }
 
+    //la fonction pour chercher une ville et afficher la meteo.
+    async function fetchCoordsByCity(city){
+        const coords = await MeteoAPI.fetchCoordsFromCity(city);
+       setCoords(coords);
+    }
+
     return  (
         <Container>
             {currentWeather ? (
@@ -76,7 +82,7 @@ export function Home(){
                         />
                     </View>
                     <View style={s.searchbar}>
-                        <SearchBar />
+                        <SearchBar onSubmit={fetchCoordsByCity}/>
                     </View>
                     <View style={s.meteo_advanced}>
                         <MeteoAdvanced wind={currentWeather.windspeed}

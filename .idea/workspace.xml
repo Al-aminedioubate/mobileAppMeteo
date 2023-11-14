@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c96aab59-2bc9-4935-b1ca-0f8bf9eb14c3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/meteo.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/meteo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Home/home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Home/home.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -1,5 +1,5 @@
 import { s } from "./home.style";
-import { Text, View } from "react-native";
+import { Alert, Text, View } from "react-native";
 import {requestForegroundPermissionsAsync, getCurrentPositionAsync} from "expo-location";
 import { useEffect, useState } from "react";
 import { MeteoAPI } from "../../api/meteo";
@@ -66,8 +66,13 @@ export function Home(){
 
     //la fonction pour chercher une ville et afficher la meteo.
     async function fetchCoordsByCity(city){
-        const coords = await MeteoAPI.fetchCoordsFromCity(city);
-       setCoords(coords);
+        try{
+            const coords = await MeteoAPI.fetchCoordsFromCity(city);
+            setCoords(coords);
+        }catch(e){
+            
+            Alert.alert("OUps !", e);
+        }
     }
 
     return  (

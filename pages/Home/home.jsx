@@ -97,6 +97,7 @@ export function Home(){
                     </View>
                 </>
             ): null}
+            
         </Container>
     );
 }

@@ -93,5 +93,5 @@ export function Home(){
                 </>
             ): null}
         </Container>
-);
+    );
 }
